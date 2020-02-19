@@ -1,5 +1,0 @@
-job_name: 'node exporter metrics'
-0:
-    scrape_interval: 5s
-    0: { static_configs: { targets: thehell } }
-
