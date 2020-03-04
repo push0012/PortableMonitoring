@@ -7,13 +7,15 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Black Dashboard') }}</title>
+        <title> @yield('title')</title>
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('black') }}/img/apple-icon.png">
         <link rel="icon" type="image/png" href="{{ asset('black') }}/img/favicon.png">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+        
         <!-- Icons -->
         <link href="{{ asset('css/nucleo-icons.css') }}" rel="stylesheet" />
         <!-- CSS -->
@@ -82,6 +84,8 @@
         <script src="{{ asset('js/core/popper.min.js') }}"></script>
         <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" defer></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" defer></script>
         <!--  Google Maps Plugin    -->
         <!-- Place this tag in your head or just before your close body tag. -->
         {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
@@ -92,7 +96,7 @@
 
         <script src="{{ asset('js/black-dashboard.min.js?v=1.0.0') }}"></script>
         <script src="{{ asset('js/theme.js') }}"></script>
-
+        <script src="{{ asset('js/custom.js') }}"></script>
         @stack('js')
 
         <script>

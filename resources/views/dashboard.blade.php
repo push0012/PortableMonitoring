@@ -1,50 +1,66 @@
 @extends('layouts.app', ['pageSlug' => 'dashboard'])
+@section('title')
+    Portable Server Monitoring Tool
+@endsection
 
 @section('content')
-    <!--<div class="row">
-        <div class="col-12">
+<!--first row-->
+    <div class="row">
+    <div class="col-lg-5">
             <div class="card card-chart">
-                <div class="card-header ">
-                    <div class="row">
-                        <div class="col-sm-6 text-left">
-                            <h5 class="card-category">Total Shipments</h5>
-                            <h2 class="card-title">Performance</h2>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
-                            <label class="btn btn-sm btn-primary btn-simple active" id="0">
-                                <input type="radio" name="options" checked>
-                                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Accounts</span>
-                                <span class="d-block d-sm-none">
-                                    <i class="tim-icons icon-single-02"></i>
-                                </span>
-                            </label>
-                            <label class="btn btn-sm btn-primary btn-simple" id="1">
-                                <input type="radio" class="d-none d-sm-none" name="options">
-                                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Purchases</span>
-                                <span class="d-block d-sm-none">
-                                    <i class="tim-icons icon-gift-2"></i>
-                                </span>
-                            </label>
-                            <label class="btn btn-sm btn-primary btn-simple" id="2">
-                                <input type="radio" class="d-none" name="options">
-                                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Sessions</span>
-                                <span class="d-block d-sm-none">
-                                    <i class="tim-icons icon-tap-02"></i>
-                                </span>
-                            </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="chartBig1"></canvas>
-                    </div>
+                <div class="card-header">
+                    <h5 class="card-category">P S M T</h5>
+                    <h3 class="card-title">
+                        <i class="tim-icons icon-alert-circle-exc text-success"></i> 
+                        Job Detail
+                    </h3>
                 </div>
             </div>
         </div>
-    </div>-->
+        <div class="col-lg-5">
+            <a href="{{ url('adapter') }}">
+            <div class="card card-chart">
+                <div class="card-header">
+                    <h5 class="card-category">P S M T</h5>
+                    <h3 class="card-title">
+                        <i class="tim-icons icon-settings-gear-63 text-info"></i>
+                        Adapter Configuration
+                    </h3>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+    <!--second row-->
+    <div class="row">
+        <div class="col-lg-5">
+            <a href="{{ url('client') }}">
+            <div class="card card-chart">
+                <div class="card-header">
+                    <h5 class="card-category">P S M T</h5>
+                    <h3 class="card-title">
+                        <i class="tim-icons icon-single-02 text-danger"></i>
+                        Clent Nodes
+                    </h3>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-lg-5">
+            <a href="{{ url('monitoring') }}">
+            <div class="card card-chart">
+                <div class="card-header">
+                    <h5 class="card-category">P S M T</h5>
+                    <h3 class="card-title">
+                        <i class="tim-icons icon-sound-wave text-warning"></i> 
+                        Server Monitoring
+                    </h3>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+    <!-- third row-->
     <div class="row">
         <div class="col-lg-5">
             <div class="card card-chart">
@@ -52,7 +68,7 @@
                     <h5 class="card-category">P S M T</h5>
                     <h3 class="card-title">
                         <i class="tim-icons icon-delivery-fast text-info"></i>
-                        Tool Network Configuration
+                        Proposed
                     </h3>
                 </div>
             </div>
@@ -63,36 +79,13 @@
                     <h5 class="card-category">P S M T</h5>
                     <h3 class="card-title">
                         <i class="tim-icons icon-send text-success"></i> 
-                        Job Detail
+                        Proposed
                     </h3>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-5">
-            <div class="card card-chart">
-                <div class="card-header">
-                    <h5 class="card-category">P S M T</h5>
-                    <h3 class="card-title">
-                        <i class="tim-icons icon-attach-87 text-danger"></i>
-                        Tool Network Configuration
-                    </h3>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-5">
-            <div class="card card-chart">
-                <div class="card-header">
-                    <h5 class="card-category">P S M T</h5>
-                    <h3 class="card-title">
-                        <i class="tim-icons icon-send text-success"></i> 
-                        Job Detail
-                    </h3>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- forth row-->
     <div class="row">
         <div class="col-lg-5">
             <div class="card card-chart">
@@ -100,7 +93,7 @@
                     <h5 class="card-category">P S M T</h5>
                     <h3 class="card-title">
                         <i class="tim-icons icon-delivery-fast text-info"></i>
-                        Tool Network Configuration
+                        Proposed
                     </h3>
                 </div>
             </div>
@@ -111,31 +104,7 @@
                     <h5 class="card-category">P S M T</h5>
                     <h3 class="card-title">
                         <i class="tim-icons icon-send text-success"></i> 
-                        Job Detail
-                    </h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-5">
-            <div class="card card-chart">
-                <div class="card-header">
-                    <h5 class="card-category">P S M T</h5>
-                    <h3 class="card-title">
-                        <i class="tim-icons icon-delivery-fast text-info"></i>
-                        Tool Network Configuration
-                    </h3>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-5">
-            <div class="card card-chart">
-                <div class="card-header">
-                    <h5 class="card-category">P S M T</h5>
-                    <h3 class="card-title">
-                        <i class="tim-icons icon-send text-success"></i> 
-                        Job Detail
+                        Proposed
                     </h3>
                 </div>
             </div>

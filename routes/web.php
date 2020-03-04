@@ -14,5 +14,20 @@
 Route::get('/', function () {
     return view('dashboard');
 });
+Route::get('edit', function () {
+    return view('profile.edit');
+});
 
+Route::get('adapter', function () {
+    return view('pages.adapterconfig');
+});
+Route::get('client', function () {
+    return view('pages.clientnodes');
+});
+Route::get('credits', function () {
+    return view('pages.credits');
+});
+Route::get('monitoring', function () {
+    return view('pages.monitoring');
+});
 //Route::get('prom','PrometheusController@index');

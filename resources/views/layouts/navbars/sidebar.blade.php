@@ -6,61 +6,46 @@
         </div>-->
         <ul class="nav">
             <li @if ($pageSlug == 'dashboard') class="active " @endif>
-                <a href="#">
+                <a href="/">
                     <i class="tim-icons icon-chart-pie-36"></i>
                     <p>{{ __('Dashboard') }}</p>
                 </a>
             </li>
-            <li>
-                <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
-                    <i class="fab fa-laravel" ></i>
-                    <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
-                    <b class="caret mt-1"></b>
+            <hr>
+            <li @if ($pageSlug == 'job') class="active " @endif>
+                <a href="{{ url('job') }}">
+                    <i class="tim-icons icon-alert-circle-exc"></i>
+                    <p>{{ __('Job Details') }}</p>
                 </a>
+            </li>
 
-                <div class="collapse show" id="laravel-examples">
-                    <ul class="nav pl-4">
-                        <li @if ($pageSlug == 'profile') class="active " @endif>
-                            <a href="#">
-                                <i class="tim-icons icon-single-02"></i>
-                                <p>{{ __('User Profile') }}</p>
-                            </a>
-                        </li>
-                        <li @if ($pageSlug == 'users') class="active " @endif>
-                            <a href="">
-                                <i class="tim-icons icon-bullet-list-67"></i>
-                                <p>{{ __('User Management') }}</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+            <li @if ($pageSlug == 'adapter') class="active " @endif>
+                <a href="{{ url('adapter') }}">
+                    <i class="tim-icons icon-settings-gear-63"></i>
+                    <p>{{ __('Adapter Configuration') }}</p>
+                </a>
             </li>
-            <li @if ($pageSlug == 'icons') class="active " @endif>
-                <a href="">
-                    <i class="tim-icons icon-atom"></i>
-                    <p>{{ __('Icons') }}</p>
+
+            <li @if ($pageSlug == 'client') class="active " @endif>
+                <a href="{{ url('client') }}">
+                    <i class="tim-icons icon-single-02"></i>
+                    <p>{{ __('Client Nodes') }}</p>
+                </a>
+            </li>
+
+            <li @if ($pageSlug == 'monitoring') class="active " @endif>
+                <a href="{{ url('monitoring') }}">
+                    <i class="tim-icons icon-sound-wave"></i>
+                    <p>{{ __('Server Monitoring') }}</p>
                 </a>
             </li>
             
-            <li @if ($pageSlug == 'notifications') class="active " @endif>
-                <a href="">
-                    <i class="tim-icons icon-bell-55"></i>
-                    <p>{{ __('Notifications') }}</p>
+            <li @if ($pageSlug == 'credits') class="active " @endif>
+                <a href="{{ url('credits') }}">
+                    <i class="tim-icons icon-heart-2"></i>
+                    <p>{{ __('Credits') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'tables') class="active " @endif>
-                <a href="">
-                    <i class="tim-icons icon-puzzle-10"></i>
-                    <p>{{ __('Table List') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'typography') class="active " @endif>
-                <a href="">
-                    <i class="tim-icons icon-align-center"></i>
-                    <p>{{ __('Typography') }}</p>
-                </a>
-            </li>
-            
             
         </ul>
     </div>

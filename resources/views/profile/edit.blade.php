@@ -7,23 +7,28 @@
                 <div class="card-header">
                     <h5 class="title">{{ __('Edit Profile') }}</h5>
                 </div>
-                <form method="post" action="{{ route('profile.update') }}" autocomplete="off">
+                <form method="post" action="" autocomplete="off">
                     <div class="card-body">
                             @csrf
                             @method('put')
 
-                            @include('alerts.success')
+                            
 
-                            <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                            <div class="form-group">
                                 <label>{{ __('Name') }}</label>
-                                <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}">
-                                @include('alerts.feedback', ['field' => 'name'])
+                                <select name="name" class="form-control">
+                                    <option class="form-control">the Hell</option>
+                                </select>
+
+
+                                <input type="text" name="name" class="form-control" placeholder="{{ __('Name') }}" value="">
+                                
                             </div>
 
-                            <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                            <div class="form-group">
                                 <label>{{ __('Email address') }}</label>
-                                <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email address') }}" value="{{ old('email', auth()->user()->email) }}">
-                                @include('alerts.feedback', ['field' => 'email'])
+                                <input type="email" name="email" class="form-control" placeholder="{{ __('Email address') }}" value="">
+                                
                             </div>
                     </div>
                     <div class="card-footer">
@@ -36,23 +41,23 @@
                 <div class="card-header">
                     <h5 class="title">{{ __('Password') }}</h5>
                 </div>
-                <form method="post" action="{{ route('profile.password') }}" autocomplete="off">
+                <form method="post" action="" autocomplete="off">
                     <div class="card-body">
                         @csrf
                         @method('put')
 
-                        @include('alerts.success', ['key' => 'password_status'])
+                        
 
-                        <div class="form-group{{ $errors->has('old_password') ? ' has-danger' : '' }}">
+                        <div class="form-group">
                             <label>{{ __('Current Password') }}</label>
-                            <input type="password" name="old_password" class="form-control{{ $errors->has('old_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Current Password') }}" value="" required>
-                            @include('alerts.feedback', ['field' => 'old_password'])
+                            <input type="password" name="old_password" class="form-control" placeholder="{{ __('Current Password') }}" value="" required>
+                           
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
+                        <div class="form-group">
                             <label>{{ __('New Password') }}</label>
-                            <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('New Password') }}" value="" required>
-                            @include('alerts.feedback', ['field' => 'password'])
+                            <input type="password" name="password" class="form-control" placeholder="{{ __('New Password') }}" value="" required>
+                           
                         </div>
                         <div class="form-group">
                             <label>{{ __('Confirm New Password') }}</label>
@@ -76,7 +81,7 @@
                             <div class="block block-four"></div>
                             <a href="#">
                                 <img class="avatar" src="{{ asset('black') }}/img/emilyz.jpg" alt="">
-                                <h5 class="title">{{ auth()->user()->name }}</h5>
+                                <h5 class="title"></h5>
                             </a>
                             <p class="description">
                                 {{ __('Ceo/Co-Founder') }}

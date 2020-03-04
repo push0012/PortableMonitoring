@@ -9,7 +9,7 @@
                 </button>
                
             </div>
-            <a class="navbar-brand ml-auto" style="padding-top:30px !important; padding-left:50px !important;" href="#">
+            <a class="navbar-brand ml-auto" style="padding-top:18px !important; padding-left:50px !important;" href="{{ url('/') }}">
                 
                     <img style="width:100px !important;" src="{{ asset('img/head.png') }}" alt="{{ __('Profile Photo') }}">
                 
@@ -22,8 +22,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-primary">
+                <li class="nav-item" style="font-size:1.5em !important;">
+                    <a href="/" class="nav-link text-primary">
                         <i class="tim-icons icon-laptop"></i> {{ __('Portable Server Monitoring Tool') }}
                     </a>
                 </li>
