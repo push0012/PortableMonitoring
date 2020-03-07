@@ -9,9 +9,9 @@
                 </button>
                
             </div>
-            <a class="navbar-brand ml-auto" style="padding-top:18px !important; padding-left:50px !important;" href="{{ url('/') }}">
+            <a class="navbar-brand ml-auto" style="padding-top:18px !important; padding-left:20px !important;" href="{{ url('/') }}">
                 
-                    <img style="width:100px !important;" src="{{ asset('img/head.png') }}" alt="{{ __('Profile Photo') }}">
+                    <img style="width:200px !important;" src="{{ asset('img/head.png') }}" alt="{{ __('Profile Photo') }}">
                 
             </a>
         </div>
