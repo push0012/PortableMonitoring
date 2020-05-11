@@ -10,13 +10,12 @@ class PrometheusController extends Controller
     public function index()
     {
         
-                  /* [ 'crape_interval' => '5s',
+        $array =   [ 'crape_interval' => '5s',
                         'static_configs'=> [
                             'targets'=> 'thehell'
                         ]
-                    ]
-                ];*/
-
+                    ];
+                
 /*
         $addr = array(
             "job_name" => "node exporter metrics",
@@ -39,9 +38,9 @@ class PrometheusController extends Controller
                     )
                 )
             );
-
+*/
             $yaml = Yaml::dump($array,4,4);
-            file_put_contents('config.yaml', $yaml, FILE_APPEND);
+            file_put_contents('config.yaml', $yaml, FILE_APPEND);/*
          */
     }
 }
