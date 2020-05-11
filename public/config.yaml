@@ -1,3 +1,0 @@
-crape_interval: 5s
-static_configs:
-    targets: thehell
