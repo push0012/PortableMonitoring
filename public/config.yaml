@@ -1,0 +1,8 @@
+-
+    job_name: node_exporter_metrics
+    scrape_interval: 5s
+    static_configs: { targets: [foo] }
+-
+    job_name: node_exporter_metrics
+    scrape_interval: 5s
+    static_configs: { targets: [bar] }

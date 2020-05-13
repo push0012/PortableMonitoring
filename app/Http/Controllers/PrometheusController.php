@@ -10,14 +10,40 @@ class PrometheusController extends Controller
     public function index()
     {
         
-        $array =   [ 'crape_interval' => '5s',
-                        'static_configs'=> [
-                            'targets'=> 'thehell'
-                        ]
-                    ];
+        /*$array =   array(
+            'job_name' => 'node_exporter_metrics',
+            'scrape_interval' => '5s',
+            'static_configs' =>
+            array (
+                0 =>
+                array (
+                    'targets' =>
+                    array (
+                        0 => 'fskldfklsd'
+                    )
+                )
+            )
+        );*/
+        $inData = array ("foo","bar");
+        $outData = array ();
+        
+        foreach ($inData as &$value) {
+            $entry = array (
+                'job_name' => 'node_exporter_metrics',
+                'scrape_interval' => '5s',
+                'static_configs' =>
+                array (
+                    'targets' =>
+                    array (
+                        0 => $value,
+                    ),
+                ),
+            );
+            array_push($outData, $entry);
+        }
 
-            $yaml = Yaml::dump($array,4,4);
-            file_put_contents('config.yaml', $yaml, FILE_APPEND);/*
+            $yaml = Yaml::dump($outData);
+            file_put_contents('config.yaml', $yaml);/*
          */
     }
 }
