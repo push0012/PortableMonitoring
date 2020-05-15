@@ -24,25 +24,35 @@ class PrometheusController extends Controller
                 )
             )
         );*/
-        $inData = array ("foo","bar");
+        $inData = array (
+            ["foo"=>'node_exporter_metrics',"bar"=>"123456"],
+            ["foo"=>'node_exporter_metrics_2',"bar"=>"654321"],
+            );
+
+
+        $json = array ();
         $outData = array ();
         
         foreach ($inData as &$value) {
             $entry = array (
-                'job_name' => 'node_exporter_metrics',
-                'scrape_interval' => '5s',
-                'static_configs' =>
-                array (
-                    'targets' =>
-                    array (
-                        0 => $value,
-                    ),
-                ),
+                'job_name' => $value['foo'],
+                "scrape_interval" => '5s',
+                "static_configs" =>
+                [
+                    0 =>
+                    [
+                        'targets' =>
+                        [
+                            0 => $value['bar'],
+                        ]
+                    ]
+                ]            
             );
+            
             array_push($outData, $entry);
         }
-
-            $yaml = Yaml::dump($outData);
+                    ;
+            $yaml = Yaml::dump($outData,3);
             file_put_contents('config.yaml', $yaml);/*
          */
     }
