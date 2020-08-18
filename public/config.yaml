@@ -1,10 +1,1 @@
--
-    job_name: node_exporter_metrics
-    scrape_interval: 5s
-    static_configs:
-        - { targets: ['123456'] }
--
-    job_name: node_exporter_metrics_2
-    scrape_interval: 5s
-    static_configs:
-        - { targets: ['654321'] }
+'[{"job_name":"node_exporter_metrics","scrape_interval":"5s","static_configs":{"targets":"123456"}},{"job_name":"node_exporter_metrics_2","scrape_interval":"5s","static_configs":{"targets":"654321"}}]'

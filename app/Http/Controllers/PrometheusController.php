@@ -32,27 +32,24 @@ class PrometheusController extends Controller
 
         $json = array ();
         $outData = array ();
-        
-        foreach ($inData as &$value) {
-            $entry = array (
+        $jsona;
+        foreach ($inData as $value) {
+            $entry =
+            [
                 'job_name' => $value['foo'],
                 "scrape_interval" => '5s',
-                "static_configs" =>
-                [
-                    0 =>
-                    [
-                        'targets' =>
-                        [
-                            0 => $value['bar'],
-                        ]
-                    ]
-                ]            
-            );
+                "static_configs" => [
+                'targets' => $value['bar']]
+                                  
+            ];
+            
             
             array_push($outData, $entry);
-        }
-                    ;
-            $yaml = Yaml::dump($outData,3);
+        };
+
+            $jsona = json_encode($outData);
+
+            $yaml = Yaml::dump($jsona,3,2);
             file_put_contents('config.yaml', $yaml);/*
          */
     }
