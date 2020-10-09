@@ -7,6 +7,10 @@
         <div class="col-md-12">
             <div class="card card-user">
                 <div class="card-header">
+                    <a href="/" class="text-primary">
+                        <i class="tim-icons icon-double-left"></i> {{ __('Back') }}
+                    </a>
+                    <br><br>
                     <h3 class="card-title">
                         Credits
                     </h3>

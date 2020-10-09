@@ -11,7 +11,7 @@
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('dashboard');
 });
 Route::get('edit', function () {
@@ -29,5 +29,5 @@ Route::get('credits', function () {
 });
 Route::get('monitoring', function () {
     return view('pages.monitoring');
-});*/
-Route::get('prom','PrometheusController@index');
+});
+//Route::get('prom','PrometheusController@index');

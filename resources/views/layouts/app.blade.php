@@ -28,6 +28,7 @@
             <div class="wrapper">
                     @include('layouts.navbars.sidebar')
                 <div class="main-panel">
+                    
                     @include('layouts.navbars.navbar')
 
                     <div class="content">
@@ -42,7 +43,7 @@
             </form>
        
             
-        
+        <!--
         <div class="fixed-plugin">
             <div class="dropdown show-dropdown">
                 <a href="#" data-toggle="dropdown">
@@ -79,7 +80,7 @@
                 </li>
                 </ul>
             </div>
-        </div>
+        </div>-->
         <script src="{{ asset('js/core/jquery.min.js') }}"></script>
         <script src="{{ asset('js/core/popper.min.js') }}"></script>
         <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
