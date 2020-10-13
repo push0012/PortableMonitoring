@@ -7,9 +7,25 @@ use Yaml;
 
 class PrometheusController extends Controller
 {
-    public function index()
+    public function index(Request $requests)
     {
-        
+
+        $indata = [];
+       /* $responseArray = json_decode($requests->getBody(), true);
+        return response()->json($responseArray['posts'], 200);*/
+        $proms = $requests['collection'];
+        return response()->json($proms, 200);
+        foreach ($requests as $request){ 
+            $inData[] = [
+
+            'job_name' => $request['job_name'],
+            'interval' => $request['interval'],
+            'target' => $request['target']
+
+            ];
+        }
+        return response()->json($inData, 200);
+
         /*$array =   array(
             'job_name' => 'node_exporter_metrics',
             'scrape_interval' => '5s',
@@ -24,22 +40,23 @@ class PrometheusController extends Controller
                 )
             )
         );*/
-        $inData = array (
+        
+      /*  $inData = array (
             ["foo"=>'node_exporter_metrics',"bar"=>"123456"],
             ["foo"=>'node_exporter_metrics_2',"bar"=>"654321"],
             );
-
-
+*/
+        //json_decode($proms)
         $json = array ();
         $outData = array ();
         $jsona;
-        foreach ($inData as $value) {
+        foreach (json_decode($proms) as $value) {
             $entry =
             [
-                'job_name' => $value['foo'],
-                "scrape_interval" => '5s',
+                'job_name' => $value->job_name,
+                "scrape_interval" => $value->interval,
                 "static_configs" => [
-                'targets' => $value['bar']]
+                'targets' => $value->target]
                                   
             ];
             

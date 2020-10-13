@@ -14,10 +14,10 @@
                     <br><br>
                     <h3 class="title">{{ __('Client Nodes Configuration') }}</h3>
                 </div>
-                <form method="post" action="" autocomplete="off">
+                
                     <div class="card-body">
                             @csrf
-                            @method('put')
+                            
                             <button type="button" class="btn btn-outline-success btn-sm float-right" id="addClient">
                                 <span class="btn-label"><i class="fas fa-plus"></i></span>
                             </button>
@@ -39,9 +39,9 @@
                             </table>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-fill btn-primary">{{ __('Save') }}</button>
+                        <button onClick="data_save()" type="submit" class="btn btn-fill btn-primary">{{ __('Save') }}</button>
                     </div>
-                </form>
+                
             </div>
         </div>
     </div>

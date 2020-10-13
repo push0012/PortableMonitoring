@@ -32,3 +32,46 @@ $(document).ready(function() {
 
 
 });
+function data_save(){
+        var savedata = new FormData();
+        var posts = []; 
+        $('#clientTable > tbody  > tr').each(function() {
+            var postData = {
+                'job_name':$(this).find('#job_name').val(),
+                'interval':$(this).find('#interval').val(),
+                'target':$(this).find('#target').val(),
+            };
+            posts.push(postData);
+        });
+
+        console.log(posts)
+
+       // savedata.append('proms' , JSON.stringify(posts));
+
+        $.ajax({
+            type: "POST",
+            url: 'prom',
+            dataType: "json",
+            data: {'collection' : posts},
+            /*headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            processData: false,*/
+            //contentType: false,
+           /* enctype: 'multipart/form-data',*/
+            success: function( msg ) {
+                console.log("go "+msg)
+               /* callNotification('fas fa-check-circle','Information','Data Save Successfully','success' );
+                setTimeout(function(){
+                    window.location = '/confirm/?ref=' + msg.ref+'&date='+msg.date;
+                },2500);*/
+            },
+            error: function(msg) {
+                console.log("error " + msg)
+                /*callNotification('fas fa-exclamation-triangle','Error','Data Saving Unsuccessfully','danger' );
+                setTimeout(function(){
+                    window.location = '/failure';
+                },2500);*/
+           }
+        });
+    }
