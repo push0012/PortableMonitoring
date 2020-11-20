@@ -1,0 +1,12 @@
+-
+  job_name: node_exporter_metrics
+  scrape_interval: '123456'
+  static_configs:
+    -
+      targets: ['123']
+-
+  job_name: node_exporter_metrics_2
+  scrape_interval: '654321'
+  static_configs:
+    -
+      targets: ['123']

@@ -35,6 +35,7 @@ $(document).ready(function() {
 function data_save(){
         var savedata = new FormData();
         var posts = []; 
+        var senddata = []; 
         $('#clientTable > tbody  > tr').each(function() {
             var postData = {
                 'job_name':$(this).find('#job_name').val(),
@@ -46,21 +47,21 @@ function data_save(){
 
         console.log(posts)
 
-       // savedata.append('proms' , JSON.stringify(posts));
+        senddata =  JSON.stringify(posts);
 
         $.ajax({
             type: "POST",
             url: 'prom',
             dataType: "json",
-            data: {'collection' : posts},
-            /*headers: {
+            data: senddata,
+            headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            processData: false,*/
-            //contentType: false,
+            processData: false,
+            contentType: false,
            /* enctype: 'multipart/form-data',*/
             success: function( msg ) {
-                console.log("go "+msg)
+                console.log("go "+ msg)
                /* callNotification('fas fa-check-circle','Information','Data Save Successfully','success' );
                 setTimeout(function(){
                     window.location = '/confirm/?ref=' + msg.ref+'&date='+msg.date;
