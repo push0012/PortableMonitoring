@@ -31,7 +31,35 @@ $(document).ready(function() {
 
 
 
+    //Adapter Configurations
+    $("#adapt_store").click(function(){
+
+            var savedata = {
+                'host_name': $('#host_name').val(),
+                'ip_address': $('#ip_address').val(),
+                'subnet_mask': $('#subnet_mask').val()
+            }
+
+            console.log(savedata);
+            senddata =  JSON.stringify(savedata);
+            $.ajax({
+                type: "POST",
+                url: 'adapterdata',
+                data: savedata,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function( msg ) {
+                    console.log(msg);
+                },
+                error: function(msg) {
+                    console.log(msg);
+                }
+            });
+        
+    });
 });
+//Client Nodes Configurations
 function data_save(){
         var savedata = new FormData();
         var posts = []; 
@@ -76,3 +104,5 @@ function data_save(){
            }
         });
     }
+
+    
