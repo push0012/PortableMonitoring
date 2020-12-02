@@ -31,3 +31,4 @@ Route::get('monitoring', function () {
     return view('pages.monitoring');
 });
 Route::post('prom','PrometheusController@index');
+Route::post('adapterdata','AdapterController@index');
