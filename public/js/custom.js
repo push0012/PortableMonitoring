@@ -29,8 +29,17 @@ $(document).ready(function() {
         s.row('.selected').remove().draw( false );
     } );
 
-
-
+    $('input[name=options]').change(function(){
+        if ($("#option2").is(":checked")) {
+            $("#ip_address").removeAttr("disabled");
+            $("#subnet_mask").removeAttr("disabled");
+        } else {
+            console.log('run 2')
+            $("#ip_address").attr("disabled", "disabled");
+            $("#subnet_mask").attr("disabled", "disabled");
+        }
+    }); 
+    
 });
 function data_save(){
         var savedata = new FormData();
@@ -51,7 +60,7 @@ function data_save(){
 
         $.ajax({
             type: "POST",
-            url: 'prom',
+            url: 'prometheus',
             dataType: "json",
             data: senddata,
             headers: {
@@ -61,18 +70,112 @@ function data_save(){
             contentType: false,
            /* enctype: 'multipart/form-data',*/
             success: function( msg ) {
-                console.log("go "+ msg)
-               /* callNotification('fas fa-check-circle','Information','Data Save Successfully','success' );
-                setTimeout(function(){
-                    window.location = '/confirm/?ref=' + msg.ref+'&date='+msg.date;
-                },2500);*/
+                //console.log("go "+ msg)
+                $.notify({
+                    // options
+                    icon: 'fa fa-check-circle fa-3x',
+	                title: 'PSMT Tool notification',
+                    message: msg
+                },{
+                    // settings
+                    type: 'success',
+                    icon_type: 'class',
+                    animate: {
+                        enter: 'animated fadeInDown',
+                        exit: 'animated fadeOutDown'
+                    },
+                    placement: {
+                        from: "bottom",
+                        align: "right"
+                    },
+                });
             },
             error: function(msg) {
-                console.log("error " + msg)
-                /*callNotification('fas fa-exclamation-triangle','Error','Data Saving Unsuccessfully','danger' );
-                setTimeout(function(){
-                    window.location = '/failure';
-                },2500);*/
+                //console.log("error " + msg)
+                $.notify({
+                    // options
+                    icon: 'fa fa-exclamation-circle fa-3x',
+	                title: 'PSMT Tool notification',
+                    message: 'Connection Failed'
+                },{
+                    // settings
+                    type: 'warning',
+                    icon_type: 'class',
+                    animate: {
+                        enter: 'animated fadeInDown',
+                        exit: 'animated fadeOutDown'
+                    },
+                    placement: {
+                        from: "bottom",
+                        align: "right"
+                    },
+                });
            }
         });
     }
+    function adapter_save(){
+        
+        var postData = {
+            'ssid':$('#ssid').val(),
+            'password':$('#password').val(),
+            'ip_address':$('#ip_address').val(),
+            'subnet_mask':$('#subnet_mask').val(),
+        };
+        senddata =  JSON.stringify(postData);
+        //console.log(senddata)
+        $.ajax({
+            type: "POST",
+            url: 'adapter',
+            dataType: "json",
+            data: senddata,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            
+            success: function( msg ) {
+                //console.log("go "+ msg)
+                $.notify({
+                    // options
+                    icon: 'fa fa-check-circle fa-3x',
+	                title: 'PSMT Tool notification',
+                    message: msg
+                },{
+                    // settings
+                    type: 'success',
+                    icon_type: 'class',
+                    animate: {
+                        enter: 'animated fadeInDown',
+                        exit: 'animated fadeOutDown'
+                    },
+                    placement: {
+                        from: "bottom",
+                        align: "right"
+                    },
+                });
+               
+            },
+            error: function(msg) {
+               // console.log("error " + msg)
+                $.notify({
+                    // options
+                    icon: 'fa fa-exclamation-circle fa-3x',
+	                title: 'PSMT Tool notification',
+                    message: 'Connection Failed'
+                },{
+                    // settings
+                    type: 'warning',
+                    icon_type: 'class',
+                    animate: {
+                        enter: 'animated fadeInDown',
+                        exit: 'animated fadeOutDown'
+                    },
+                    placement: {
+                        from: "bottom",
+                        align: "right"
+                    },
+                });
+           }
+        });
+
+    } 
+    
