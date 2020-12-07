@@ -13,7 +13,7 @@
             </li>
             <hr>
             <li @if ($pageSlug == 'job') class="active " @endif>
-                <a class="nav-text" href="{{ url('job') }}">
+                <a class="nav-text" href="#">
                     <i class="tim-icons icon-alert-circle-exc"></i>
                     <p>{{ __('Job Details') }}</p>
                 </a>
