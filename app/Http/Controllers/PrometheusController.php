@@ -9,6 +9,7 @@ class PrometheusController extends Controller
 {
     public function index(Request $requests)
     {
+        file_put_contents('D:\config.yaml', $yaml);
         $parameter = json_decode($requests->getContent());
         // return response()->json($requests->getContent(), 200);
         foreach ($parameter as $request){ 
