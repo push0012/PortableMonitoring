@@ -32,7 +32,12 @@ class PrometheusController extends Controller
         $outData = array ();
         $jsona;
         foreach ($inData as $value) {
-            $entry =   array(
+
+        file_put_contents('D:\config.yaml', "\t- job_name: '".$value['job_name']."'"."\n",FILE_APPEND);
+        file_put_contents('D:\config.yaml', "\t\t\tscrape_interval: ".$value['interval']."s\n",FILE_APPEND);
+        file_put_contents('D:\config.yaml', "\t\t\t\t\tstatic_configs:\n",FILE_APPEND);
+        file_put_contents('D:\config.yaml', "\t\t\t\t\t- targets: ['".$value['target']."']"."\n\n",FILE_APPEND);
+            /*$entry =   array(
                 'job_name' => $value['job_name'],
                 'scrape_interval' => $value['interval'],
                 'static_configs' =>
@@ -47,13 +52,13 @@ class PrometheusController extends Controller
                 )
                 );
             
-            array_push($outData, $entry);
+            array_push($outData, $entry);*/
         };
 
-            $jsona = json_encode($outData);
+            /*$jsona = json_encode($outData);
 
             $yaml = Yaml::dump($outData,4,2);
-            file_put_contents('D:\config.yaml', $yaml);
+            file_put_contents('D:\config.yaml', $yaml);*/
             return response()->json("Successfully Added", 200);
     }
     

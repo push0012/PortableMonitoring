@@ -28,7 +28,6 @@ $(document).ready(function() {
     $('#removeClient').click( function () {
         s.row('.selected').remove().draw( false );
     } );
-
     $('input[name=options]').change(function(){
         if ($("#option2").is(":checked")) {
             $("#ip_address").removeAttr("disabled");
@@ -41,6 +40,7 @@ $(document).ready(function() {
     }); 
     
 });
+//Client Nodes Configurations
 function data_save(){
         var savedata = new FormData();
         var posts = []; 

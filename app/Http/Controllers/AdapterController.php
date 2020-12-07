@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class AdapterController extends Controller
 {
     public function index(Request $requests)
@@ -24,3 +25,4 @@ class AdapterController extends Controller
         }
     }
 }
+
