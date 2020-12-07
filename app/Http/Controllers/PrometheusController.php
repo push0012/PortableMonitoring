@@ -53,8 +53,9 @@ class PrometheusController extends Controller
 
             $yaml = Yaml::dump($outData,4,2);
             file_put_contents('D:\config.yaml', $yaml);
-            return response()->json("success", 200);
+            return response()->json("Successfully Added", 200);
     }
+    
 }
 
 /*
