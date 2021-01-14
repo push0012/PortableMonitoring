@@ -16,7 +16,7 @@ class AdapterController extends Controller
         
         $para = "WiFiMe";*/
        $command = 'sudo nmcli dev wifi connect '.$receive->ssid.' password '.$receive->password;
-       //$var = shell_exec($command);
+       //$var = shell_exec($command); //uncomment this line and comment below line before run in raspberry board
         file_put_contents('D:\config.yaml', $command);
         
             return response()->json("Successfully Connected", 200);
