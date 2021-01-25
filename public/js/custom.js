@@ -178,4 +178,59 @@ function data_save(){
         });
 
     } 
+    function restart_services(){
+ 
+        $.ajax({
+            type: "POST",
+            url: 'restart',
+            dataType: "json",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function( msg ) {
+                //console.log("go "+ msg)
+                $.notify({
+                    // options
+                    icon: 'fa fa-check-circle fa-3x',
+	                title: 'PSMT Tool notification',
+                    message: msg
+                },{
+                    // settings
+                    type: 'success',
+                    icon_type: 'class',
+                    animate: {
+                        enter: 'animated fadeInDown',
+                        exit: 'animated fadeOutDown'
+                    },
+                    placement: {
+                        from: "bottom",
+                        align: "right"
+                    },
+                });
+               
+            },
+            error: function(msg) {
+               // console.log("error " + msg)
+                $.notify({
+                    // options
+                    icon: 'fa fa-exclamation-circle fa-3x',
+	                title: 'PSMT Tool notification',
+                    message: 'Connection Failed'
+                },{
+                    // settings
+                    type: 'warning',
+                    icon_type: 'class',
+                    animate: {
+                        enter: 'animated fadeInDown',
+                        exit: 'animated fadeOutDown'
+                    },
+                    placement: {
+                        from: "bottom",
+                        align: "right"
+                    },
+                });
+           }
+        });
+
+    } 
     

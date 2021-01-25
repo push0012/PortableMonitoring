@@ -32,3 +32,4 @@ Route::get('monitoring', function () {
 });
 Route::post('prometheus','PrometheusController@index');
 Route::post('adapter','AdapterController@index');
+Route::post('restart','AdapterController@restart');

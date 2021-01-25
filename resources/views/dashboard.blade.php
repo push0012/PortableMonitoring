@@ -53,7 +53,7 @@
                     <h5 class="card-category">P S M T</h5>
                     <h3 class="card-title">
                         <i class="tim-icons icon-sound-wave text-warning"></i> 
-                        Server Monitoring
+                        Monitoring Dashboard
                     </h3>
                 </div>
             </div>
@@ -63,15 +63,17 @@
     <!-- third row-->
     <div class="row">
         <div class="col-lg-5">
-            <div class="card card-chart">
+            
+            <div class="card card-chart" onclick="restart_services();" style="cursor:pointer;">
                 <div class="card-header">
                     <h5 class="card-category">P S M T</h5>
                     <h3 class="card-title">
                         <i class="tim-icons icon-delivery-fast text-info"></i>
-                        Proposed
+                        Service Restart
                     </h3>
                 </div>
             </div>
+            
         </div>
         <div class="col-lg-5">
             <div class="card card-chart">

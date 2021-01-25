@@ -36,7 +36,7 @@
             <li @if ($pageSlug == 'monitoring') class="active " @endif>
                 <a class="nav-text" href="{{ url('monitoring') }}">
                     <i class="tim-icons icon-sound-wave"></i>
-                    <p>{{ __('Server Monitoring') }}</p>
+                    <p>{{ __('Monitoring Dashboard') }}</p>
                 </a>
             </li>
             
